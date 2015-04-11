@@ -1,0 +1,4 @@
+title: Awesomesauce
+
+apps:
+    - Radix\App\Example\ExampleApp

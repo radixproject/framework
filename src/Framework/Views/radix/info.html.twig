@@ -1,0 +1,44 @@
+{% extends "@Theme/layout.html.twig" %}
+
+{% block content %}
+
+<h2>Radix info</h2>
+
+<h3>Active apps ({{ apps|length }})</h3>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Details</th>
+    </tr>
+    {% for app in apps %}
+    <tr>
+        <td>{{ app.getName() }}</td>
+        <td><b>{{ app.getTitle() }}</b><br />{{ app.getDescription() }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>Active types ({{ types|length }})</h3>
+
+{% for type in types %}
+<h4>{{ type.getName() }}</h4>
+<p>{{ type.getDescription() }}</p>
+
+<table class="table">
+    <caption>Fields</caption>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    {% for field in type.getFields() %}
+    <tr>
+        <td><code>{{ field.getName() }}</code></td>
+        <td>{{ field.getType() }}</td>
+        <td>{{ field.getDescription() }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endfor %}
+{% endblock %}

@@ -1,8 +1,8 @@
 <?php
 
-namespace Radix\Framework;
+namespace Radix\Framework\Model;
 
-abstract class BaseApp
+class Field
 {
     private $name;
     
@@ -16,25 +16,25 @@ abstract class BaseApp
         $this->name = $name;
     }
     
-    private $title;
+    private $type;
     
-    public function getTitle()
+    public function getType()
     {
-        return $this->title;
+        return $this->type;
     }
     
-    public function setTitle($title)
+    public function setType($type)
     {
-        $this->title = $title;
+        $this->type = $type;
     }
     
     private $description;
-    
+
     public function getDescription()
     {
         return $this->description;
     }
-    
+
     public function setDescription($description)
     {
         $this->description = $description;

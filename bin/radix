@@ -17,10 +17,15 @@ if (!file_exists($loader)) {
 
 require $loader;
 
-use Symfony\Component\Console\Application;
+use Radix\Framework\Radix;
+use Radix\Framework\RadixConsoleApplication;
 
-$application = new Application('Radix Console Application', '0.0.1');
+$radix = new Radix();
+
+$application = new RadixConsoleApplication('Radix Console Application for ' . $radix['title'], '0.0.1');
+$application->setRadix($radix);
 $application->setCatchExceptions(true);
 $application->add(new \Radix\Framework\Command\RadixServeCommand());
+$application->add(new \Radix\Framework\Command\RadixInfoCommand());
 $application->add(new \Radix\App\Example\Command\ExampleTestCommand());
 $application->run();
